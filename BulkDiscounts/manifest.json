@@ -15,7 +15,8 @@
       "include_globs" : [
         "*/_cpanel/order*",
         "*/_cpanel/salesorder*",
-        "*/_cpanel#pay*"
+        "*/_cpanel#pay*",
+        "*/_cpanel"
       ],
       "js": ["cPanel/bulk_discounts.js"]
 	}
