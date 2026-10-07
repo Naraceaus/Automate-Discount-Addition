@@ -2,11 +2,18 @@ if (document.getElementById('cpnlist')!=null && document.getElementById('ordcpnt
 	
 	
 	// add scroll to coupon codes dialog
-	var coupon_holder = document.getElementById('cpnlist');
-	coupon_holder.style.overflowY="scroll";
-	coupon_holder.style.maxHeight="300px";
-	coupon_holder.style.display="block";
+	var alreadyscroll = document.querySelector('.cpnlist-wrapper') != null && window.getComputedStyle(document.querySelector('.cpnlist-wrapper')).overflowY == "scroll";
+
+	if (!alreadyscroll) {
+		var coupon_holder = document.getElementById('cpnlist');
+		coupon_holder.style.overflowY="scroll";
+		coupon_holder.style.maxHeight="300px";
+		coupon_holder.style.display="block";
+	}
+
 	
+
+
 	if (document.querySelector('[onclick="recCPN(this, false)"]')!=null) {
 
 		// button to attempt applying all discounts
