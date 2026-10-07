@@ -13,8 +13,8 @@ if (document.getElementById('cpnlist')!=null && document.getElementById('ordcpnt
 
 	
 
-
-	if (document.querySelector('[onclick="recCPN(this, false)"]')!=null) {
+	var apply_discounts_btn = document.querySelector('[onclick="recCPN(this, false)"]') || document.querySelector('[onclick="recCPN(this)"]');
+	if (apply_discounts_btn!=null) {
 
 		// button to attempt applying all discounts
 		function applyAllDiscounts() {
@@ -22,7 +22,7 @@ if (document.getElementById('cpnlist')!=null && document.getElementById('ordcpnt
 			for (var ci = 0; ci < cpn_checks.length; ci++) {
 				cpn_checks[ci].checked=true;
 			}
-			document.querySelector('[onclick="recCPN(this, false)"]').click();
+			apply_discounts_btn.click();
 		}
 		console.log(applyAllDiscounts);
 		var apply_all_btn = document.createElement('input');
@@ -32,8 +32,7 @@ if (document.getElementById('cpnlist')!=null && document.getElementById('ordcpnt
 		apply_all_btn.className="btn";
 		apply_all_btn.addEventListener("click", applyAllDiscounts)
 
-		var existing_button = document.querySelector('[onclick="recCPN(this, false)"]');
-		existing_button.parentElement.insertBefore(apply_all_btn, existing_button);
+		apply_discounts_btn.parentElement.insertBefore(apply_all_btn, apply_discounts_btn);
 
 
 		// sort applied discounts to top of list
