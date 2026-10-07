@@ -8,6 +8,8 @@ if (document.getElementById('cpnlist')!=null && document.getElementById('ordcpnt
 	coupon_holder.style.display="block";
 	
 	if (document.querySelector('[onclick="recCPN(this, false)"]')!=null) {
+
+		// button to attempt applying all discounts
 		function applyAllDiscounts() {
 			var cpn_checks = document.querySelectorAll("[type='checkbox'][name^='_cpn_']");
 			for (var ci = 0; ci < cpn_checks.length; ci++) {
@@ -27,7 +29,7 @@ if (document.getElementById('cpnlist')!=null && document.getElementById('ordcpnt
 		existing_button.parentElement.insertBefore(apply_all_btn, existing_button);
 
 
-
+		// sort applied discounts to top of list
 		var targetNode = document.getElementById('ordcpntotal');
 		var config = { attributes: true, childList: true, subtree: true };
 		var checkActiveDiscounts = function(mutationsList, observer) {
